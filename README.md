@@ -35,6 +35,16 @@ end
 
 ## Usage
 
+Run a migration to add a bitfield to the schema
+
+```elixir
+alter table(:users) do
+  add :policies, :integer
+end
+```
+
+Define the Ecto type and use it as the type for the migrated field
+
 ```elixir
 defmodule User do
   use Ecto.Schema
