@@ -4,11 +4,11 @@ Provides functionality similar to [Ruby's bitfields](https://github.com/grosser/
 
 ## Motivation
 
-Say you have a user schema that can have one or more of the following service policy [:create_user, :update_user, :delete_user]
+Say you have a user schema that can have one or more of the following service policy `[:create_user, :update_user, :delete_user]`
 
 To pack that information into a bit we'd do something like this
 
-policies = [create_user: 2^0, update_user: 2^1, delete_user: 2^2]
+`policies = [create_user: 2^0, update_user: 2^1, delete_user: 2^2]`
 
 | create_user    | update_user    | delete_user    | BIT |
 |----------------|----------------|----------------|-----|
