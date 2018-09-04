@@ -41,7 +41,7 @@ Run a migration to add a bitfield to the schema
 
 ```elixir
 alter table(:users) do
-  add :policies, :integer
+  add :policies, :integer, default: 0, null: false
 end
 ```
 
