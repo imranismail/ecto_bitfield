@@ -2,34 +2,34 @@ defmodule EctoBitfield do
   @moduledoc """
   Provides macro to support Bitfield datatype with Ecto
 
-      defmodule Deal do
+      defmodule User do
         use Ecto.Schema
 
         import EctoBitfield
 
         # takes in a list or a keyword list for explicitly setting the mappings
-        defbitfield ValidDays, [:sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday]
+        defbitfield Policies, [:create_user, :update_user, :delete_user]
 
-        schema "deals" do
-          field :valid_days, ValidDays
+        schema "users" do
+          field :policies, User.Policies
         end
       end
 
-  To read::
+  Reading:
 
-      query = from d in Deals, where: d.valid_days == ^[:sunday, :saturday]
-      # %Ecto.Queryable{...}
+      query = from u in User, where: u.policies == ^[:create_user, :update_user]
+      #> %Ecto.Queryable{...}
 
-      deal = Repo.one(query)
-      # %Deal{..., valid_days: [:sunday, :saturday]}
+      user = Repo.one(query)
+      #> %User{..., policies: [:create_user, :update_user]}
 
-  To write:
+  Writing:
 
-      changeset = Ecto.Changeset.cast(deal, %{valid_days: [:monday, :tuesday]}, [:valid_days])
-      # %Ecto.Changeset{...}
+      changeset = Ecto.Changeset.cast(user, %{policies: [:create_user]}, [:policies])
+      #> %Ecto.Changeset{..., changes: %{policices: 1}}
 
       Repo.update(changeset)
-      # {:ok, %Deal{..., valid_days: [:monday, :tuesday]}}
+      #> {:ok, %User{..., policices: [:create_user]}}
   """
 
   defmacro defbitfield(module, enums) do
