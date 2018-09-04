@@ -1,5 +1,7 @@
 # EctoBitfield
 
+[![Build Status](https://travis-ci.org/imranismail/ecto_bitfield.svg?branch=master)](https://travis-ci.org/imranismail/ecto_bitfield)
+
 Provides functionality similar to [Ruby's bitfields](https://github.com/grosser/bitfields/)
 
 ## Motivation
