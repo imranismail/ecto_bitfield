@@ -23,10 +23,9 @@ policies = [create_user: 2^0, update_user: 2^1, delete_user: 2^2]
 
 This saves you a couple of migrations and headache and is also is memory efficient.
 
-## Installation
+Docs on how to use it with Ecto can be found here [https://hexdocs.pm/ecto_bitfield](https://hexdocs.pm/ecto_bitfield)
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `ecto_bitfield` to your list of dependencies in `mix.exs`:
+## Installation
 
 ```elixir
 def deps do
@@ -36,7 +35,5 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/ecto_bitfield](https://hexdocs.pm/ecto_bitfield).
+Docs can be found at [https://hexdocs.pm/ecto_bitfield](https://hexdocs.pm/ecto_bitfield)
 
