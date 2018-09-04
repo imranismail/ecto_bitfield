@@ -64,7 +64,7 @@ defmodule EctoBitfield do
         def cast(fields) when is_list(fields) do
           casted_fields =
             Enum.map(fields, fn
-              bit when is_integer(bit) and bit <= @max_bit_size ->
+              bit when is_integer(bit) and bit >= 0 and bit <= @max_bit_size ->
                 bit
 
               field when is_binary(field) ->
