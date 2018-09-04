@@ -35,5 +35,39 @@ def deps do
 end
 ```
 
-Docs can be found at [https://hexdocs.pm/ecto_bitfield](https://hexdocs.pm/ecto_bitfield)
+## Usage
 
+```elixir
+defmodule User do
+  use Ecto.Schema
+
+  import EctoBitfield
+
+  # takes in a list or a keyword list for explicitly setting the mappings
+  defbitfield Policies, [:create_user, :update_user, :delete_user]
+
+  schema "users" do
+    field :policies, User.Policies
+  end
+end
+```
+
+**Reading**
+
+```elixir
+query = from u in User, where: u.policies == ^[:create_user, :update_user]
+#> %Ecto.Queryable{...}
+
+user = Repo.one(query)
+#> %User{..., policies: [:create_user, :update_user]}
+```
+
+**Writing**
+
+```elixir
+changeset = Ecto.Changeset.cast(user, %{policies: [:create_user]}, [:policies])
+#> %Ecto.Changeset{..., changes: %{policices: 1}}
+
+Repo.update(changeset)
+#> {:ok, %User{..., policices: [:create_user]}}
+```
