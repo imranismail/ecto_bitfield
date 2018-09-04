@@ -23,8 +23,6 @@ To pack that information into a bit we'd do something like this
 
 This saves you a couple of migrations and headache and is also is memory efficient.
 
-Docs on how to use it with Ecto can be found here [https://hexdocs.pm/ecto_bitfield](https://hexdocs.pm/ecto_bitfield)
-
 ## Installation
 
 ```elixir
